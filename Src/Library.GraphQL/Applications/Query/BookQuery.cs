@@ -31,12 +31,4 @@ namespace Library.GraphQL.Applications.Query
             });
         }
     }
-
-    internal static class QueryExtensions
-    {
-        internal static void AddQuery(this IServiceCollection services)
-        {
-            services.AddScoped<BookQuery>();
-        }
-    }
 }
