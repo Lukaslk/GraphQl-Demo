@@ -23,9 +23,9 @@ namespace Library.GraphQL.Applications.Mutations
             {
                 Name = "updateBook",
                 Type = typeof(BookType),
-                Arguments = new QueryArguments(new QueryArgument<GuidGraphType>() { Name = "idBook" },
+                Arguments = new QueryArguments(new QueryArgument<GuidGraphType>() { Name = "bookId" },
                                                new QueryArgument<BookInputType>() { Name = "book" }),
-                Resolver = new FuncFieldResolver<Book>(async context => await bookRepository.UpdateAsync(context.GetArgument<Guid>("idBook"),
+                Resolver = new FuncFieldResolver<Book>(async context => await bookRepository.UpdateAsync(context.GetArgument<Guid>("bookId"),
                                                                                                          context.GetArgument<Book>("book"))),
             });
 
@@ -33,8 +33,8 @@ namespace Library.GraphQL.Applications.Mutations
             {
                 Name = "deleteBook",
                 Type = typeof(BooleanGraphType),
-                Arguments = new QueryArguments(new QueryArgument<GuidGraphType>() { Name = "idBook" }),
-                Resolver = new FuncFieldResolver<bool>(async context => await bookRepository.DeleteAsync(context.GetArgument<Guid>("idBook"))),
+                Arguments = new QueryArguments(new QueryArgument<GuidGraphType>() { Name = "bookId" }),
+                Resolver = new FuncFieldResolver<bool>(async context => await bookRepository.DeleteAsync(context.GetArgument<Guid>("bookId"))),
             });
         }
     }
