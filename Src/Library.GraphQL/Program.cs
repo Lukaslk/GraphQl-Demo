@@ -9,11 +9,11 @@ builder.Services.AddControllers();
 
 builder.Services.AddLibraryDbContext();
 builder.Services.AddBookRepository();
+builder.Services.AddAuthorRepository();
 builder.Services.AddTypes();
-builder.Services.AddSchema();
 builder.Services.AddQuery();
 builder.Services.AddMutation();
-
+builder.Services.AddSchema();
 builder.Services.AddGraphQlCofigServices();
 
 var app = builder.Build();
