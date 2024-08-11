@@ -14,27 +14,35 @@ namespace Library.GraphQL.Extensions
             services.AddGraphQL(p => p.AddAutoSchema<ISchema>().AddSystemTextJson());
         }
 
-        internal static IApplicationBuilder AddGraphQLMiddleware(this IApplicationBuilder applicationBuilder)
+        internal static IApplicationBuilder AddGraphQLMiddleware(this IApplicationBuilder app)
         {
-            applicationBuilder.UseGraphiQl("/graphql");
-            applicationBuilder.UseGraphQL<ISchema>();
+            app.UseGraphiQl("/graphql");
+            app.UseGraphQL<ISchema>();
 
-            return applicationBuilder;
+            return app;
         }
 
         internal static void AddQuery(this IServiceCollection services)
         {
-            services.AddScoped<BookQuery>();
+            services.AddTransient<BookQuery>();
+            services.AddTransient<AuthorQuery>();
+            services.AddTransient<RootQuery>();
+
         }
 
         internal static void AddMutation(this IServiceCollection services)
         {
-            services.AddScoped<BookMutation>();
+            services.AddTransient<BookMutation>();
+            services.AddTransient<AuthorMutation>();
+            services.AddTransient<RootMutation>();
         }
 
         internal static void AddTypes(this IServiceCollection services)
         {
             services.AddTransient<BookType>();
+            services.AddTransient<AuthorType>();
+            services.AddTransient<AuthorInputType>();
+            services.AddTransient<BookInputType>();
         }
     }
 }
