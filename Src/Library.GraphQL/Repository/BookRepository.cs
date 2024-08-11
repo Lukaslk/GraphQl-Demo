@@ -20,6 +20,9 @@ namespace Library.GraphQL.Repository
         public async Task<Book> AddAsync(Book book)
         {
             await context.Books.AddAsync(book);
+
+            await context.SaveChangesAsync();
+
             return book;
         }
 
