@@ -1,6 +1,4 @@
-﻿using GraphQL.Types;
-
-namespace Library.GraphQL.Models
+﻿namespace Library.GraphQL.Models
 {
     public class Book 
     {
