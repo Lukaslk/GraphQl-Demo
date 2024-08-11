@@ -32,12 +32,20 @@ namespace Library.GraphQL.Infrastructure
                         AuthorId = idAuthorId,
                     }
                 );
+
             modelBuilder.Entity<Author>().HasData(
                 new Author()
                 {
                     Id = idAuthorId,
                     Name = "Author Name"
                 });
+
+            modelBuilder.Entity<Author>().HasData(
+                            new Author()
+                            {
+                                Id = Guid.NewGuid(),
+                                Name = "Author Name 2"
+                            });
         }
     }
 
