@@ -1,5 +1,4 @@
-﻿using GraphQL;
-using GraphQL.Types;
+﻿using GraphQL.Types;
 using Library.GraphQL.Models;
 using Library.GraphQL.Repository;
 
