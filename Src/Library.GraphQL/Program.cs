@@ -18,7 +18,7 @@ builder.Services.AddGraphQlCofigServices();
 
 var app = builder.Build();
 
-DbContextExtensions.Seed(app);
+DbContextExtensions.InitializeDatabase(app);
 
 app.UseHttpsRedirection();
 
