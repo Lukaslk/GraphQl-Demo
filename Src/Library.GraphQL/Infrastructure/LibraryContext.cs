@@ -15,6 +15,11 @@ namespace Library.GraphQL.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Book>()
+                        .HasOne(b => b.Author)
+                        .WithMany(a => a.Books)
+                        .HasForeignKey(b => b.AuthorId);
+
             var idAuthorId = Guid.NewGuid();
             modelBuilder.Entity<Book>().HasData(
                     new Book()
