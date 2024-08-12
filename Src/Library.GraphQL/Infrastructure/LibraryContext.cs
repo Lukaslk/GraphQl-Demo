@@ -49,15 +49,15 @@ namespace Library.GraphQL.Infrastructure
         }
     }
 
-    public static class DbContextExtensions
+    internal static class DbContextExtensions
     {
-        public static IServiceCollection AddLibraryDbContext(this IServiceCollection services)
+        internal static IServiceCollection AddLibraryDbContext(this IServiceCollection services)
         {
             services.AddDbContext<LibraryContext>();
             return services;
         }
 
-        public static void Seed(WebApplication app)
+        internal static void InitializeDatabase(WebApplication app)
         {
             var serviceScoprapp = app.Services.CreateScope();
             var dataContext = serviceScoprapp.ServiceProvider.GetService<LibraryContext>();
