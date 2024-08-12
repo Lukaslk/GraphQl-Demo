@@ -50,7 +50,7 @@ namespace Library.GraphQL.Repository
         }
     }
 
-    internal static class RepositoyrBookExtensions
+    internal static class RepositoryBookExtensions
     {
         internal static void AddBookRepository(this IServiceCollection services)
         {
